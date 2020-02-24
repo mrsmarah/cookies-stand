@@ -89,14 +89,131 @@ Lima.randomCustomer();
 Lima.cookiesAmountHour();
 Lima.render();
 
+var workingHours = ['6 am ','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm',];
+
+// creating header tree
+var container = document.getElementById('salmon-cookies');
+var tableEl = document.createElement('table');
+container.appendChild(tableEl);
 
 
+var tr1El = document.createElement('tr');
+tableEl.appendChild(tr1El);
+
+var th1El = document.createElement('th');
+th1El.textContent = '';
+tr1El.appendChild(th1El);
+
+for(var i = 0 ; i < workingHours.length ; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = workingHours[i];
+    tr1El.appendChild(thEl);
+    console.log(thEl); 
+}
+var th2El = document.createElement('th');
+th2El.textContent = 'Daily Location Total';
+tr1El.appendChild(th2El);
+
+var tr2El = document.createElement('tr');
+tableEl.appendChild(tr2El);
+
+var thEl = document.createElement('th');
+    thEl.textContent = seattle.name;
+    tr2El.appendChild(thEl);
+
+for(var i = 0 ; i < workingHours.length ; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = seattle.amount[i];
+    tr2El.appendChild(thEl);
+}
+var thEl = document.createElement('th');
+    thEl.textContent = seattle.total;
+    tr2El.appendChild(thEl);
 
 
+var tr3El = document.createElement('tr');
+tableEl.appendChild(tr3El);
+
+var thEl = document.createElement('th');
+    thEl.textContent = Tokyo.name;
+    tr3El.appendChild(thEl);
+
+for(var i = 0 ; i < workingHours.length ; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = Tokyo.amount[i];
+    tr3El.appendChild(thEl);
+}
+var thEl = document.createElement('th');
+    thEl.textContent = Tokyo.total;
+    tr3El.appendChild(thEl);
 
 
+var tr4El = document.createElement('tr');
+tableEl.appendChild(tr4El);
+
+var thEl = document.createElement('th');
+    thEl.textContent = Dubai.name;
+    tr4El.appendChild(thEl);
+
+for(var i = 0 ; i < workingHours.length ; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = Dubai.amount[i];
+    tr4El.appendChild(thEl);
+}
+var thEl = document.createElement('th');
+    thEl.textContent = Dubai.total;
+    tr4El.appendChild(thEl);
+
+var tr5El = document.createElement('tr');
+tableEl.appendChild(tr5El);
+
+var thEl = document.createElement('th');
+    thEl.textContent = Paris.name;
+    tr5El.appendChild(thEl);
+
+for(var i = 0 ; i < workingHours.length ; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = Paris.amount[i];
+    tr5El.appendChild(thEl);
+}
+var thEl = document.createElement('th');
+    thEl.textContent = Paris.total;
+    tr5El.appendChild(thEl);
 
 
+var tr6El = document.createElement('tr');
+    tableEl.appendChild(tr6El);
 
+var thEl = document.createElement('th');
+    thEl.textContent = Lima.name;
+    tr6El.appendChild(thEl);
+
+for(var i = 0 ; i < workingHours.length ; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = Lima.amount[i];
+    tr6El.appendChild(thEl);
+}
+    var thEl = document.createElement('th');
+    thEl.textContent = Lima.total;
+    tr6El.appendChild(thEl);
+
+
+var tr7El = document.createElement('tr');
+tableEl.appendChild(tr7El);
+
+var thEl = document.createElement('th');
+    thEl.textContent = 'Total';
+    tr7El.appendChild(thEl);
+
+for(var i = 0 ; i < workingHours.length ; i++){
+    var thEl = document.createElement('th');
+
+    thEl.textContent = seattle.amount[i]+Tokyo.amount[i]+Dubai.amount[i]+Paris.amount[i]+Lima.amount[i];
+    tr7El.appendChild(thEl);    
+
+}
+    var thEl = document.createElement('th');
+    thEl.textContent = seattle.total+Tokyo.total+Dubai.total+Paris.total+Lima.total;
+    tr7El.appendChild(thEl);    
 
 
