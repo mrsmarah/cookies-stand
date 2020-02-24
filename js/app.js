@@ -1,5 +1,18 @@
 `use strict`;
 
+// ANOTHER WAY TO STORE IN ARRAYS 
+    // random : []
+    // amount : []
+    // for (var i = 0 ;i < this.workingHours.length ;i++){
+    // var A = getRandomCustomer(this.minCustomersHour,this.maxCustomerHour);
+    // this.random.push(A);
+    // var B = this.avgCookiesDay*A;
+    // this.amount.push(B);
+
+    //replace Math.ceil with Math.floor
+
+    //make the array global instead of repeating it inside each object
+
 function getRandomCustomer(minCustomersHour,maxCustomerHour) {
     minCustomersHour = Math.ceil(minCustomersHour);
     maxCustomerHour = Math.floor(maxCustomerHour);
@@ -23,6 +36,8 @@ var seattle = {
             // console.table(this.workingHours[i], this.random[i]);
         }
     },
+
+
 
     cookiesAmountHour : function(){
        for (var i = 0 ;i < this.workingHours.length ;i++){
