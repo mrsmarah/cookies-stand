@@ -8,6 +8,7 @@ function getRandomCustomer(minCustomersHour, maxCustomerHour) {
 }
 
 var workingHours = ['6 am ', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm',];
+var locations = [];
 
 function Location(name, minCustomersHour, maxCustomerHour, avgCookiesDay, random, amount) {
     this.name = name;
@@ -17,7 +18,9 @@ function Location(name, minCustomersHour, maxCustomerHour, avgCookiesDay, random
     this.random = random;
     this.amount = amount;
     this.total = 0;
+    locations.push(this);
 }
+
 Location.prototype.randomCustomer = function (minCustomersHour, maxCustomerHour) {
     for (var i = 0; i < workingHours.length; i++) {
         this.random[i] = getRandomCustomer(this.minCustomersHour, this.maxCustomerHour);
@@ -104,6 +107,7 @@ Location.prototype.renderTableBody = function () {
     tr2El.appendChild(tdEl);
 };
 
+ 
 
 // footer tree table
 Location.prototype.renderTableFooter = function () {
@@ -113,14 +117,25 @@ Location.prototype.renderTableFooter = function () {
     var tdEl = document.createElement('td');
     tdEl.textContent = 'Total';
     tr7El.appendChild(tdEl);
-    for (var i = 0; i < workingHours.length; i++) {
-        var tdEl = document.createElement('td');
-        tdEl.textContent = seattle.amount[i] + Tokyo.amount[i] + Dubai.amount[i] + Paris.amount[i] + Lima.amount[i];
+    
+    var sumTotal = 0;
+        for (var i = 0; i < workingHours.length; i++) {
+            for (var j = 0; j < locations.length; j++) {
+            var tdEl = document.createElement('td');    
+            sumTotal += locations[j].amount[i];
+            tdEl.textContent = sumTotal;
+        }
         tr7El.appendChild(tdEl);
     }
-    var tdEl = document.createElement('td');
-    tdEl.textContent = seattle.total + Tokyo.total + Dubai.total + Paris.total + Lima.total;
-    tr7El.appendChild(tdEl);
+
+    var sumTotal2 = 0;
+        for (var j = 0; j < locations.length; j++) {
+        var tdEl = document.createElement('td');
+        sumTotal2 += locations[j].total;
+        tdEl.textContent = sumTotal2;
+        }
+        tr7El.appendChild(tdEl);
+    
 };
 
 //creating new objects by the constructor
