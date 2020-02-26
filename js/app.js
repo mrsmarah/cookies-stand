@@ -94,7 +94,7 @@ Location.prototype.renderTableBody = function () {
     
     var tr2El = document.createElement('tr');
     tableEl.appendChild(tr2El);
-    var thEl = document.createElement('td');
+    var thEl = document.createElement('th');
     thEl.textContent = this.name;
     tr2El.appendChild(thEl);
     for (var i = 0; i < workingHours.length; i++) {
@@ -114,9 +114,9 @@ Location.prototype.renderTableFooter = function () {
     
     var tr7El = document.createElement('tr');
     tableEl.appendChild(tr7El);
-    var tdEl = document.createElement('td');
-    tdEl.textContent = 'Total';
-    tr7El.appendChild(tdEl);
+    var thEl = document.createElement('th');
+    thEl.textContent = 'Total';
+    tr7El.appendChild(thEl);
     
     var sumTotal = 0;
         for (var i = 0; i < workingHours.length; i++) {
