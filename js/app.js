@@ -19,12 +19,16 @@ function Location(name, minCustomersHour, maxCustomerHour, avgCookiesDay) {
     this.amount = [];
     this.total = 0;
     locations.push(this);
-}
+    this.randomCustomer();
+    this.cookiesAmountHour();
+    }
+
+
+//construction functions :
 
 Location.prototype.randomCustomer = function (minCustomersHour, maxCustomerHour) {
     for (var i = 0; i < workingHours.length; i++) {
         this.random[i] = getRandomCustomer(this.minCustomersHour, this.maxCustomerHour);
-        // console.table(this.workingHours[i], this.random[i]);
     }
 };
 Location.prototype.cookiesAmountHour = function () {
@@ -67,6 +71,8 @@ Location.prototype.render = function () {
 
 };
 
+
+// Table 
 var container = document.getElementById('salmon-cookies');
 var tableEl = document.createElement('table');
 container.appendChild(tableEl);
@@ -108,7 +114,6 @@ Location.prototype.renderTableBody = function () {
 };
 
  
-
 // footer tree table
 Location.prototype.renderTableFooter = function () {
     
@@ -141,41 +146,29 @@ Location.prototype.renderTableFooter = function () {
 
 //creating new objects by the constructor
 var seattle = new Location('seattle', 23, 65, 6.3);
-seattle.randomCustomer();
-seattle.cookiesAmountHour();
-seattle.render();
-
 
 var Tokyo = new Location('Tokyo', 3, 24, 1.2);
-Tokyo.randomCustomer();
-Tokyo.cookiesAmountHour();
-Tokyo.render();
 
 var Dubai = new Location('Dubai', 11, 38, 3.7);
-Dubai.randomCustomer();
-Dubai.cookiesAmountHour();
-Dubai.render();
 
 var Paris = new Location('Paris', 20, 38, 2.3);
-Paris.randomCustomer();
-Paris.cookiesAmountHour();
-Paris.render();
 
 var Lima = new Location('Lima', 2, 16, 4.6);
-Lima.randomCustomer();
-Lima.cookiesAmountHour();
-Lima.render();
 
-//calling the table render 
+
+//calling the renders functions
+
+// for (var j = 0; j < locations.length; j++){
+//     locations[j].render();
+//     }
 
 seattle.renderTableHeader();
-seattle.renderTableBody();
-Tokyo.renderTableBody();
-Dubai.renderTableBody();
-Paris.renderTableBody();
-Lima.renderTableBody();
-// locations[i].renderTableBody();
-// you put this in for loop to print the 5 body renders
+
+for (var j = 0; j < locations.length; j++){
+    locations[j].renderTableBody();
+    }
+
 seattle.renderTableFooter();
+
 
 
