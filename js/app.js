@@ -10,13 +10,13 @@ function getRandomCustomer(minCustomersHour, maxCustomerHour) {
 var workingHours = ['6 am ', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm',];
 var locations = [];
 
-function Location(name, minCustomersHour, maxCustomerHour, avgCookiesDay, random, amount) {
+function Location(name, minCustomersHour, maxCustomerHour, avgCookiesDay) {
     this.name = name;
     this.minCustomersHour = minCustomersHour;
     this.maxCustomerHour = maxCustomerHour;
     this.avgCookiesDay = avgCookiesDay;
-    this.random = random;
-    this.amount = amount;
+    this.random = [];
+    this.amount = [];
     this.total = 0;
     locations.push(this);
 }
@@ -118,13 +118,14 @@ Location.prototype.renderTableFooter = function () {
     thEl.textContent = 'Total';
     tr7El.appendChild(thEl);
     
-    var sumTotal = 0;
+    var sumTotal;
         for (var i = 0; i < workingHours.length; i++) {
-            for (var j = 0; j < locations.length; j++) {
-            var tdEl = document.createElement('td');    
+             sumTotal = 0;
+            for (var j = 0; j < locations.length; j++) {  
             sumTotal += locations[j].amount[i];
-            tdEl.textContent = sumTotal;
         }
+        var tdEl = document.createElement('td'); 
+        tdEl.textContent = sumTotal; 
         tr7El.appendChild(tdEl);
     }
 
@@ -139,28 +140,28 @@ Location.prototype.renderTableFooter = function () {
 };
 
 //creating new objects by the constructor
-var seattle = new Location('seattle', 23, 65, 6.3, [], []);
+var seattle = new Location('seattle', 23, 65, 6.3);
 seattle.randomCustomer();
 seattle.cookiesAmountHour();
 seattle.render();
 
 
-var Tokyo = new Location('Tokyo', 3, 24, 1.2, [], []);
+var Tokyo = new Location('Tokyo', 3, 24, 1.2);
 Tokyo.randomCustomer();
 Tokyo.cookiesAmountHour();
 Tokyo.render();
 
-var Dubai = new Location('Dubai', 11, 38, 3.7, [], []);
+var Dubai = new Location('Dubai', 11, 38, 3.7);
 Dubai.randomCustomer();
 Dubai.cookiesAmountHour();
 Dubai.render();
 
-var Paris = new Location('Paris', 11, 38, 3.7, [], []);
+var Paris = new Location('Paris', 20, 38, 2.3);
 Paris.randomCustomer();
 Paris.cookiesAmountHour();
 Paris.render();
 
-var Lima = new Location('Lima', 11, 38, 3.7, [], []);
+var Lima = new Location('Lima', 2, 16, 4.6);
 Lima.randomCustomer();
 Lima.cookiesAmountHour();
 Lima.render();
@@ -173,6 +174,8 @@ Tokyo.renderTableBody();
 Dubai.renderTableBody();
 Paris.renderTableBody();
 Lima.renderTableBody();
+// locations[i].renderTableBody();
+// you put this in for loop to print the 5 body renders
 seattle.renderTableFooter();
 
 
