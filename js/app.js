@@ -10,6 +10,8 @@ function getRandomCustomer(minCustomersHour, maxCustomerHour) {
 var workingHours = ['6 am ', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm',];
 var locations = [];
 
+//construction Object :
+
 function Location(name, minCustomersHour, maxCustomerHour, avgCookiesDay) {
     this.name = name;
     this.minCustomersHour = minCustomersHour;
@@ -21,6 +23,7 @@ function Location(name, minCustomersHour, maxCustomerHour, avgCookiesDay) {
     locations.push(this);
     this.randomCustomer();
     this.cookiesAmountHour();
+
     }
 
 
@@ -78,7 +81,7 @@ var tableEl = document.createElement('table');
 container.appendChild(tableEl);
 
 //header tree table
-Location.prototype.renderTableHeader = function () {
+function renderTableHeader() {
  
     var tr1El = document.createElement('tr');
     tableEl.appendChild(tr1El);
@@ -93,9 +96,10 @@ Location.prototype.renderTableHeader = function () {
     var th2El = document.createElement('th');
     th2El.textContent = 'Daily Location Total';
     tr1El.appendChild(th2El);
-};
+}
 
 //body tree table
+
 Location.prototype.renderTableBody = function () {
     
     var tr2El = document.createElement('tr');
@@ -115,7 +119,7 @@ Location.prototype.renderTableBody = function () {
 
  
 // footer tree table
-Location.prototype.renderTableFooter = function () {
+function renderTableFooter() {
     
     var tr7El = document.createElement('tr');
     tableEl.appendChild(tr7El);
@@ -142,33 +146,75 @@ Location.prototype.renderTableFooter = function () {
         }
         tr7El.appendChild(tdEl);
     
-};
+}
+
+// creating Form :
+
+var locationForm = document.getElementById('location-form');
+locationForm.addEventListener('submit' , function(event){
+        event.preventDefault();
+        console.log(event.target);
+        var locationName = event.target.name.value;
+        var locationMin = event.target.minCustomersHour.value;
+        var locationMax = event.target.maxCustomersHour.value;
+        var avgCookies = event.target.avgCookiesDay.value;
+        var newLocation = new Location(locationName , locationMin , locationMax , avgCookies);
+        console.log(locations);
+        // adding new row for the new location by render :
+        newLocation.renderTableBody();
+        // deleting the old total:
+        var table = document.getElementsByTagName('table')[0];
+        table.deleteRow(table.rows.length-2);
+        // adding a new total by render:
+        renderTableFooter();
+        document.getElementById('name').value ="";
+        document.getElementById('minCustomersHour').value ="";
+        document.getElementById('maxCustomersHour').value ="";
+        document.getElementById('avgCookiesDay').value ="";
+
+    });
+
+
+
+//////////////adding new row without render//////////////////////
+        // var table = document.getElementsByTagName('table')[0];
+        // var newRow = table.insertRow(table.rows.length-1);
+        
+        // var cellsArr = [];
+        // for (var i = 0 ; i < 16 ; i++){
+        //    var newCell = newRow.insertCell(i);
+        //    cellsArr.push(newCell);
+        // }
+        // console.log(cellsArr);
+
+        // do 2 for loops for this:
+        // cellsArr[0].innerHTML = newLocation.name ;
+        // cellsArr[1].innerHTML = newLocation.amount[i];
+        // .......14 times
+        // cellsArr[15].innerHTML = newLocation.total;
+        // console.log(cellsArr);
+
 
 //creating new objects by the constructor
-var seattle = new Location('seattle', 23, 65, 6.3);
+new Location('seattle', 23, 65, 6.3);
 
-var Tokyo = new Location('Tokyo', 3, 24, 1.2);
+new Location('Tokyo', 3, 24, 1.2);
 
-var Dubai = new Location('Dubai', 11, 38, 3.7);
+new Location('Dubai', 11, 38, 3.7);
 
-var Paris = new Location('Paris', 20, 38, 2.3);
+new Location('Paris', 20, 38, 2.3);
 
-var Lima = new Location('Lima', 2, 16, 4.6);
+new Location('Lima', 2, 16, 4.6);
 
 
 //calling the renders functions
 
-// for (var j = 0; j < locations.length; j++){
-//     locations[j].render();
-//     }
-
-seattle.renderTableHeader();
+renderTableHeader();
 
 for (var j = 0; j < locations.length; j++){
     locations[j].renderTableBody();
     }
 
-seattle.renderTableFooter();
-
+renderTableFooter();
 
 

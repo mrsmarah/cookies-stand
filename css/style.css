@@ -130,7 +130,7 @@ h4 {
     margin: 17px 15px;
     background: rgba(241, 228, 212, 0.84);
     padding: 19px 17px;
-    width: 200px;
+    width: 14%;
     height: 180px;
     line-height: 30px;
     font-family: monospace;
@@ -138,6 +138,7 @@ h4 {
     float: left;
 
 }
+
 
 iframe {
     width: 50%;
