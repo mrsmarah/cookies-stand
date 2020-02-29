@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Yellowtail&display=swap); 
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap); 
+
 table {
     border-collapse: collapse;
     width: 70%;
@@ -10,6 +13,8 @@ td {
     height: 25px;
     vertical-align: bottom;
     border: 1px solid black;
+    font-family: Arial;
+    color: rgb(109, 80, 34); ;
 }
 th {
     height: 40px;
@@ -93,13 +98,14 @@ nav ul li{
     float: right;
 }
 h2{ 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Yellowtail;
     text-indent: 30px;
     font-size: 27px;
     font-weight: lighter;
     letter-spacing: 3px;
     padding: 22px 0px;
     margin-top: 5px;
+    color:  rgb(114, 85, 38);
 }
 body {
         
@@ -114,7 +120,7 @@ body {
 }
 
 p.text{
-    font-family: sans-serif;
+    font-family:  Georgia;
     font-size: 14px;
     margin: 0 39px;
     word-spacing: 4px;
@@ -133,8 +139,8 @@ h4 {
     width: 14%;
     height: 180px;
     line-height: 30px;
-    font-family: monospace;
-    font-size: 15px;
+    font-family:  Georgia;
+    font-size: 16px;
     float: left;
 
 }
@@ -149,26 +155,28 @@ footer p {
     text-align: center;
     font-size: 20px;
     color: rgb(0, 0, 0);
-    padding: 10px;
+    padding: 20px;
 }
 
 footer {
     background-color: rgb(254, 254, 254);
+    height: 70px;
+    border-style: solid;
+    border-color: rgb(126, 94, 42);
+    border-width: 1px;
 }
 
-/* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical
 }
 
-/* Style the submit button with a specific background color etc */
 input[type=submit] {
   background-color: #4CAF50;
   color: white;
@@ -178,13 +186,11 @@ input[type=submit] {
   cursor: pointer;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #367a3a;
 }
 
-/* Add a background color and some padding around the form */
-.container {
+.container{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
